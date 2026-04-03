@@ -1,0 +1,6 @@
+# Claude Code 环境变量
+export PATH="$HOME/.local/bin:$PATH"
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
+export MAX_THINKING_TOKENS="10000"
+export CLAUDE_CODE_EFFORT_LEVEL="max"
+export IS_SANDBOX=1
