@@ -1,0 +1,4 @@
+- [User Profile](user_profile.md) — 服务器开发者，root 用户，研究知识图谱+区块链
+- [Serena MCP Best Practices](reference_serena_best_practices.md) — 语义代码分析工具安装配置和最佳实践
+- [MCP Servers Config](reference_mcp_servers.md) — 已配置的 MCP 服务器列表（Playwright + Serena）
+- [Agent Teams Best Practices](reference_agent_teams.md) — Agent Teams 使用场景、配置和最佳实践
