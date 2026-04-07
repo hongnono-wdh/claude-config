@@ -786,7 +786,7 @@
             <svg style="color: var(--rose);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
           </div>
           <h3>Environment Config</h3>
-          <p>Env vars + <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude1</code> alias for full-permission mode in any directory. One-line append to .bashrc.</p>
+          <p>Env vars + alias so <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude</code> auto-runs in full-permission mode. One-line append to .bashrc.</p>
           <div class="count" style="background: var(--rose-dim); color: var(--rose);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
             bashrc-exports.sh ready
@@ -906,10 +906,10 @@
 <span class="cmd">cp</span> /tmp/claude-config/CLAUDE.md <span class="string">~/.claude/CLAUDE.md</span>
 <span class="cmd">cp</span> /tmp/claude-config/settings.json <span class="string">~/.claude/settings.json</span>
 
-<span class="comment"># 3. Set environment variables + claude1 alias</span>
+<span class="comment"># 3. Set environment variables + alias</span>
 <span class="cmd">cat</span> /tmp/claude-config/bashrc-exports.sh <span class="flag">&gt;&gt;</span> ~/.bashrc
 <span class="cmd">source</span> ~/.bashrc
-<span class="comment"># Now you can run "claude1" anywhere = claude --dangerously-skip-permissions</span>
+<span class="comment"># "claude" now auto-includes --dangerously-skip-permissions</span>
 
 <span class="comment"># 4. Install MCP dependencies</span>
 <span class="cmd">npm install</span> <span class="flag">-g</span> @playwright/mcp
@@ -955,7 +955,7 @@ Execute ALL steps below. Confirm each step succeeds:
 1. git clone https://github.com/hongnono-wdh/claude-config.git /tmp/claude-config
 2. mkdir -p ~/.claude &amp;&amp; cp /tmp/claude-config/CLAUDE.md ~/.claude/CLAUDE.md &amp;&amp; cp /tmp/claude-config/settings.json ~/.claude/settings.json
 3. cat /tmp/claude-config/bashrc-exports.sh &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
-   (This also adds alias claude1='claude --dangerously-skip-permissions')
+   (This aliases "claude" to auto-include --dangerously-skip-permissions)
 4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
 5. curl -LsSf https://astral.sh/uv/install.sh | sh
 6. npx skills add obra/superpowers -a claude-code -g -y --skill '*'
@@ -973,7 +973,7 @@ After completion, verify:
 - ~/.claude/CLAUDE.md exists
 - ~/.claude/settings.json exists
 - List installed skills count (should be 24)
-- Run "type claude1" to confirm alias is set</pre>
+- Run "type claude" to confirm alias is set (should show --dangerously-skip-permissions)</pre>
               </div>
             </div>
           </div>

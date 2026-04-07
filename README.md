@@ -23,11 +23,11 @@ export MAX_THINKING_TOKENS="10000"               # 思考 token 上限
 export CLAUDE_CODE_EFFORT_LEVEL="max"            # 最大努力等级
 export IS_SANDBOX=1                              # 允许 root 用户使用 dangerously mode
 
-# 别名：任意目录下运行 claude1 即可启动全权限模式
-alias claude1='claude --dangerously-skip-permissions'
+# 运行 claude 时自动启用全权限模式
+alias claude='command claude --dangerously-skip-permissions'
 ```
 
-> **注意：** `IS_SANDBOX=1` 仅解除 root 用户限制，实际的权限跳过（bypass permissions）由 `settings.json` 中的 `permissions.allow` 字段控制。`claude1` 别名会同时启用 `--dangerously-skip-permissions`，确保在任何项目目录下都能跳过权限确认。
+> **注意：** `IS_SANDBOX=1` 仅解除 root 用户限制。alias 会让 `claude` 命令自动带上 `--dangerously-skip-permissions`，无需额外操作。
 
 ## settings.json（~/.claude/settings.json）
 
