@@ -126,7 +126,7 @@ cp -r memory/* ~/.claude/projects/<project-path>/memory/
 
 ```bash
 # 1. 克隆配置仓库
-gh repo clone hongnono-wdh/claude-config
+git clone https://github.com/hongnono-wdh/claude-config.git
 
 # 2. 复制全局配置
 cp claude-config/CLAUDE.md ~/.claude/CLAUDE.md

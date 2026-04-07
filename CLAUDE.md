@@ -56,5 +56,6 @@ Agent Teams 已启用（CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1）。
 
 ## 通用规范
 - 优先使用中文与用户交流
-- 服务器环境为 Ubuntu，root 用户
-- Git 用户：hongnono-wdh，邮箱 hong@omineye.ai
+- 请根据实际环境修改下方配置
+- 服务器环境为 Ubuntu
+- Git 用户：请替换为你的 GitHub 用户名和邮箱
