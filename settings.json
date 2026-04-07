@@ -1,6 +1,23 @@
 {
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Agent(*)",
+      "Skill(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "NotebookEdit(*)",
+      "TodoWrite(*)"
+    ],
+    "deny": []
+  },
   "mcpServers": {
     "playwright": {
       "command": "npx",

@@ -21,8 +21,10 @@ export PATH="$HOME/.local/bin:$PATH"
 export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"  # 启用 Agent Teams
 export MAX_THINKING_TOKENS="10000"               # 思考 token 上限
 export CLAUDE_CODE_EFFORT_LEVEL="max"            # 最大努力等级
-export IS_SANDBOX=1                              # 允许 root 运行 bypassPermissions
+export IS_SANDBOX=1                              # 允许 root 用户使用 dangerously mode
 ```
+
+> **注意：** `IS_SANDBOX=1` 仅解除 root 用户限制，实际的权限跳过（bypass permissions）由 `settings.json` 中的 `permissions.allow` 字段控制。
 
 ## settings.json（~/.claude/settings.json）
 
@@ -30,6 +32,14 @@ export IS_SANDBOX=1                              # 允许 root 运行 bypassPerm
 {
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "allow": [
+      "Bash(*)", "Read(*)", "Write(*)", "Edit(*)",
+      "Glob(*)", "Grep(*)", "Agent(*)", "Skill(*)",
+      "WebFetch(*)", "WebSearch(*)", "NotebookEdit(*)", "TodoWrite(*)"
+    ],
+    "deny": []
+  },
   "mcpServers": {
     "playwright": {
       "command": "npx",
