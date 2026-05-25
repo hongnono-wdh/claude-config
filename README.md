@@ -1,17 +1,46 @@
 # Claude Code Config
 
-Claude Code 个人配置同步仓库，用于在新项目中复用技能规则、记忆和最佳实践。
+Claude Code 个人配置同步仓库，用于在新项目/新服务器中复用插件、技能规则、记忆和最佳实践。
 
 ## 结构
 
 ```
-├── CLAUDE.md              # 全局开发指令（Skill 使用规则、Agent Teams 规则）
+├── CLAUDE.md              # 全局开发指令（Karpathy 四原则 · 插件引导 · Skill 规则 · Agent Teams）
+├── settings.json          # 全局设置（插件 enabledPlugins / 市场 / 权限 / MCP）
+├── bashrc-exports.sh      # 环境变量 + claude alias
 ├── memory/                # 持久化记忆
 │   ├── MEMORY.md          # 记忆索引
 │   ├── user_profile.md    # 用户档案
-│   ├── reference_*.md     # 参考记忆（工具最佳实践等）
-│   └── ...
-└── skills/                # 自定义 Skill（预留）
+│   └── reference_*.md     # 参考记忆（工具最佳实践等）
+├── skills/                # 自定义 Skill（预留）
+└── site/index.html        # 落地页
+```
+
+## 插件（Plugins）
+
+本仓库通过 Claude Code 插件机制启用 3 个插件。**最省事的同步方式**：把 `settings.json` 复制到 `~/.claude/`，其中的 `enabledPlugins` + `extraKnownMarketplaces` 会让 Claude Code 启动时自动拉取并安装——每个按本仓库配置的人都能开箱即用。
+
+| 插件 | 市场 | 来源仓库 | 用途 |
+|------|------|----------|------|
+| **superpowers** | `claude-plugins-official`（官方） | obra/superpowers（Jesse Vincent） | 14 个开发方法论 skill：TDD、系统化调试、头脑风暴、计划/执行、子代理、代码审查、worktree 等 |
+| **understand-anything** | `understand-anything` | Lum1104/Understand-Anything | 代码库知识图谱：架构理解、PR/diff 分析、领域建模、onboarding（8 skill + 9 agent） |
+| **andrej-karpathy-skills** | `karpathy-skills` | forrestchang/andrej-karpathy-skills | `karpathy-guidelines`：减少 LLM 编码常见错误的四原则 |
+
+> **来源说明：** `superpowers` 来自 Claude 官方市场 `claude-plugins-official`；`understand-anything`、`andrej-karpathy-skills` 来自各项目作者维护的官方 GitHub 仓库——均为作者 README 中推荐的安装方式，并非非官方搬运。
+
+手动安装（若不走 settings.json 自动安装）：
+
+```bash
+# superpowers —— Claude 官方市场，开箱即用
+claude plugin install superpowers@claude-plugins-official
+
+# understand-anything —— 作者官方仓库（Lum1104，官网 understand-anything.com）
+claude plugin marketplace add Lum1104/Understand-Anything
+claude plugin install understand-anything@understand-anything
+
+# andrej-karpathy-skills —— 作者官方仓库（forrestchang）
+claude plugin marketplace add forrestchang/andrej-karpathy-skills
+claude plugin install andrej-karpathy-skills@karpathy-skills
 ```
 
 ## 环境变量配置（~/.bashrc）
@@ -31,35 +60,33 @@ alias claude='command claude --dangerously-skip-permissions'
 
 ## settings.json（~/.claude/settings.json）
 
+包含插件启用配置（`enabledPlugins`）、额外市场来源（`extraKnownMarketplaces`）、权限与 MCP：
+
 ```json
 {
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "understand-anything@understand-anything": true,
+    "andrej-karpathy-skills@karpathy-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "understand-anything": { "source": { "source": "github", "repo": "Lum1104/Understand-Anything" } },
+    "karpathy-skills":     { "source": { "source": "github", "repo": "forrestchang/andrej-karpathy-skills" } }
+  },
   "permissions": {
-    "allow": [
-      "Bash(*)", "Read(*)", "Write(*)", "Edit(*)",
-      "Glob(*)", "Grep(*)", "Agent(*)", "Skill(*)",
-      "WebFetch(*)", "WebSearch(*)", "NotebookEdit(*)", "TodoWrite(*)"
-    ],
+    "allow": ["Bash(*)", "Read(*)", "Write(*)", "Edit(*)", "Glob(*)", "Grep(*)", "Agent(*)", "Skill(*)", "WebFetch(*)", "WebSearch(*)", "NotebookEdit(*)", "TodoWrite(*)"],
     "deny": []
   },
   "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/mcp", "--headless"]
-    },
-    "serena": {
-      "command": "uvx",
-      "args": [
-        "-p", "3.13",
-        "--from", "git+https://github.com/oraios/serena",
-        "serena", "start-mcp-server",
-        "--context", "claude-code"
-      ]
-    }
+    "playwright": { "command": "npx", "args": ["@playwright/mcp", "--headless"] },
+    "serena": { "command": "uvx", "args": ["-p", "3.13", "--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server", "--context", "claude-code"] }
   }
 }
 ```
+
+> 官方市场 `claude-plugins-official` 由 Claude Code 自动安装，无需在 `extraKnownMarketplaces` 声明。
 
 ## MCP Servers
 
@@ -68,24 +95,23 @@ alias claude='command claude --dangerously-skip-permissions'
 | **Playwright** | 浏览器自动化（headless） | `npm install -g @playwright/mcp` + `npx playwright install --with-deps chromium` |
 | **Serena** | 语义代码分析，符号级搜索编辑，40+ 语言 | `curl -LsSf https://astral.sh/uv/install.sh \| sh`，通过 uvx 启动 |
 
-## 已安装的 Skills（24 个）
+## 工具选型：Serena vs understand-anything
 
-### Superpowers 系列（obra/superpowers）
-| Skill | 用途 |
-|-------|------|
-| brainstorming | 创意工作前的结构化头脑风暴 |
-| dispatching-parallel-agents | 2+ 独立任务并行调度 |
-| executing-plans | 按检查点执行实现计划 |
-| finishing-a-development-branch | 分支完结：合并/PR/清理 |
-| receiving-code-review | 收到 review 后验证再改，不盲从 |
-| requesting-code-review | 发起代码审查 |
-| subagent-driven-development | 子代理驱动开发 |
-| systematic-debugging | 4 步排错法，强制先找根因 |
-| test-driven-development | 先写测试再写实现 |
-| using-git-worktrees | Git worktree 隔离开发 |
-| verification-before-completion | 声称完成前必须验证 |
-| writing-plans | 需求→计划，先规划再动代码 |
-| writing-skills | 创建/编辑/验证 skill |
+两者职责不同、互补，建议都装：
+
+| | Serena（MCP） | understand-anything（插件） |
+|---|--------------|---------------------------|
+| 本质 | 符号级操作工具 | 知识图谱 / 文档生成器 |
+| 用途 | Claude 实时找符号、查引用、精确编辑 | 建立全局理解：架构图、可视化、onboarding |
+| 成本 | 低，反而省 token | 高（`understand` 单次约 17.8k tok） |
+| 频率 | 高频，贯穿日常开发 | 低频，按需一次性 |
+| 口诀 | **要改代码、要精确** | **要看懂全局、要文档** |
+
+典型配合：接手陌生库 → `understand` 摸清架构 → Serena 精确改代码 → `understand-diff` 评估大 PR 影响面。
+
+## 独立 Skills（npx skills add · 11 个）
+
+插件之外，以下 11 个 skill 通过 `npx skills add` 单独安装：
 
 ### 设计类
 | Skill | 来源 | 用途 |
@@ -106,13 +132,9 @@ alias claude='command claude --dangerously-skip-permissions'
 | solidity-security | wshobson | 智能合约安全 |
 | nopua | wuji-labs | 卡住时切换思路，不放弃 |
 
-## 安装方式
+安装命令：
 
 ```bash
-# Superpowers 全家桶
-npx skills add obra/superpowers -a claude-code -g -y --skill '*'
-
-# 其他 skill 单独安装
 npx skills add anthropics/skills -a claude-code -g -y --skill frontend-design --skill canvas-design --skill webapp-testing --skill skill-creator
 npx skills add nextlevelbuilder/ui-ux-pro-max-skill -a claude-code -g -y --skill ui-ux-pro-max
 npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
@@ -123,31 +145,36 @@ npx skills add wshobson/agents -a claude-code -g -y --skill solidity-security
 npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
 ```
 
+> superpowers 不再通过 `npx skills add obra/superpowers` 安装——它现在是官方市场插件（见上方「插件」章节）。
+
 ## 使用方法
 
-### 同步到新项目
-
-```bash
-# 复制 CLAUDE.md 到全局配置
-cp CLAUDE.md ~/.claude/CLAUDE.md
-
-# 复制记忆到项目目录
-cp -r memory/* ~/.claude/projects/<project-path>/memory/
-```
-
-### 在新服务器上一键配置
+### 新服务器一键配置
 
 ```bash
 # 1. 克隆配置仓库
 git clone https://github.com/hongnono-wdh/claude-config.git
 
-# 2. 复制全局配置
+# 2. 复制全局配置（settings.json 含插件配置，启动后自动安装插件）
+mkdir -p ~/.claude
 cp claude-config/CLAUDE.md ~/.claude/CLAUDE.md
 cp claude-config/settings.json ~/.claude/settings.json
 
-# 3. 安装 skills（见上方安装命令）
-
-# 4. 设置环境变量
+# 3. 设置环境变量
 cat claude-config/bashrc-exports.sh >> ~/.bashrc
 source ~/.bashrc
+
+# 4. 安装 MCP 依赖
+npm install -g @playwright/mcp && npx playwright install --with-deps chromium
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 5. 安装 11 个独立 skill（见上方命令）
+
+# 6. 启动 claude —— 三个插件会按 settings.json 自动拉取安装
+```
+
+### 同步记忆到项目
+
+```bash
+cp -r claude-config/memory/* ~/.claude/projects/<project-path>/memory/
 ```

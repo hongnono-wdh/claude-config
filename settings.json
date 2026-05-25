@@ -1,6 +1,25 @@
 {
   "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "understand-anything@understand-anything": true,
+    "andrej-karpathy-skills@karpathy-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Lum1104/Understand-Anything"
+      }
+    },
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    }
+  },
   "permissions": {
     "allow": [
       "Bash(*)",
