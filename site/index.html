@@ -911,18 +911,18 @@
 
       <div class="install-block fade-in">
         <div class="install-tabs" role="tablist">
-          <button class="install-tab active" role="tab" aria-selected="true" data-tab="manual">手动安装</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-tab="prompt">AI 提示词（一键）</button>
+          <button class="install-tab active" role="tab" aria-selected="true" data-tab="prompt">AI 提示词（一键）</button>
+          <button class="install-tab" role="tab" aria-selected="false" data-tab="manual">手动安装</button>
         </div>
         <div class="install-content">
           <!-- Manual -->
-          <div class="install-panel active" id="tab-manual">
+          <div class="install-panel" id="tab-manual">
             <div class="code-block">
               <div class="code-header">
                 <span>bash</span>
                 <button class="copy-btn" data-target="code-manual" aria-label="Copy code">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  Copy
+                  复制
                 </button>
               </div>
               <div class="code-body">
@@ -970,14 +970,14 @@
           </div>
 
           <!-- AI Prompt -->
-          <div class="install-panel" id="tab-prompt">
+          <div class="install-panel active" id="tab-prompt">
             <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">复制这段提示词，粘贴给新环境中的 Claude Code：</p>
             <div class="code-block">
               <div class="code-header">
                 <span>prompt</span>
                 <button class="copy-btn" data-target="code-prompt" aria-label="Copy prompt">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  Copy
+                  复制
                 </button>
               </div>
               <div class="code-body">
