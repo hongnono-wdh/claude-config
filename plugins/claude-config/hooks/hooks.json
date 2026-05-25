@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "printf '%s' \"$TOOL_INPUT\" | grep -qE 'git\\s+commit' && echo '[claude-config] 刚提交了改动——若本次引入了新约定、踩坑或工作流经验，考虑同步更新 CLAUDE.md 或项目记忆，趁上下文还新鲜。' || true"
+          }
+        ]
+      }
+    ]
+  }
+}

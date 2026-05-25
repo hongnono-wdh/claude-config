@@ -1,0 +1,9 @@
+{
+  "name": "claude-config",
+  "version": "1.0.0",
+  "description": "个人 Claude Code 增强配置插件：Karpathy 编码准则 + 工具选型引导 skill、Playwright/Serena MCP、reflection hook，并自动带装三大插件。",
+  "author": {
+    "name": "hongnono-wdh"
+  },
+  "homepage": "https://github.com/hongnono-wdh/claude-config"
+}

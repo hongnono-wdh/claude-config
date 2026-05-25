@@ -1,0 +1,25 @@
+{
+  "name": "claude-config",
+  "owner": {
+    "name": "hongnono-wdh"
+  },
+  "description": "个人 Claude Code 增强配置：一键带装 superpowers / understand-anything / karpathy 三大插件，并附带编码准则、MCP 与 hooks。",
+  "allowCrossMarketplaceDependenciesOn": [
+    "claude-plugins-official",
+    "understand-anything",
+    "karpathy-skills"
+  ],
+  "plugins": [
+    {
+      "name": "claude-config",
+      "source": "./plugins/claude-config",
+      "description": "Karpathy 编码准则 + 工具选型引导 + Playwright/Serena MCP + reflection hook，安装时自动带装 superpowers、understand-anything、andrej-karpathy-skills 三大插件。",
+      "version": "1.0.0",
+      "dependencies": [
+        { "name": "superpowers", "marketplace": "claude-plugins-official" },
+        { "name": "understand-anything", "marketplace": "understand-anything" },
+        { "name": "andrej-karpathy-skills", "marketplace": "karpathy-skills" }
+      ]
+    }
+  ]
+}
