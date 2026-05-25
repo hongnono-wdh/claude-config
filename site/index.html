@@ -944,12 +944,11 @@
 <span class="cmd">npx</span> playwright install <span class="flag">--with-deps</span> chromium
 <span class="cmd">curl</span> <span class="flag">-LsSf</span> <span class="url">https://astral.sh/uv/install.sh</span> | sh
 
-<span class="comment"># 5. 安装 3 个插件（settings.json 仅做注册——install 才会真正下载）</span>
-<span class="cmd">claude plugin install</span> <span class="string">superpowers@claude-plugins-official</span>
+<span class="comment"># 5. 一键安装聚合插件（自动带装上面 3 个插件 + 规则 skill/MCP/hook）</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
-<span class="cmd">claude plugin install</span> <span class="string">understand-anything@understand-anything</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
-<span class="cmd">claude plugin install</span> <span class="string">andrej-karpathy-skills@karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
 
 <span class="comment"># 6. 安装 11 个独立 Skill</span>
 <span class="cmd">npx skills add</span> <span class="string">anthropics/skills</span> <span class="flag">-a claude-code -g -y \
@@ -992,10 +991,10 @@ https://github.com/hongnono-wdh/claude-config
    （这会为 "claude" 设置别名，使其自动带上 --dangerously-skip-permissions）
 4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
 5. curl -LsSf https://astral.sh/uv/install.sh | sh
-6. 安装 3 个插件（settings.json 负责注册，运行 install 才会真正下载）：
-   claude plugin install superpowers@claude-plugins-official
-   claude plugin marketplace add Lum1104/Understand-Anything &amp;&amp; claude plugin install understand-anything@understand-anything
-   claude plugin marketplace add forrestchang/andrej-karpathy-skills &amp;&amp; claude plugin install andrej-karpathy-skills@karpathy-skills
+6. 一键安装聚合插件（会自动带装上面 3 个插件 + 规则 skill/MCP/hook）：
+   claude plugin marketplace add Lum1104/Understand-Anything
+   claude plugin marketplace add forrestchang/andrej-karpathy-skills
+   claude plugin marketplace add hongnono-wdh/claude-config &amp;&amp; claude plugin install claude-config@claude-config
 7. npx skills add anthropics/skills -a claude-code -g -y --skill frontend-design --skill canvas-design --skill webapp-testing --skill skill-creator
 8. npx skills add nextlevelbuilder/ui-ux-pro-max-skill -a claude-code -g -y --skill ui-ux-pro-max
 9. npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
