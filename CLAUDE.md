@@ -18,7 +18,7 @@
 | 插件 | 市场 | 用途 |
 |------|------|------|
 | **superpowers** | `claude-plugins-official`（Claude 官方） | 14 个开发方法论 skill：TDD、系统化调试、头脑风暴、计划/执行、子代理、代码审查、worktree 等。下方「Skill 使用规则」中的同名 skill 即由它提供 |
-| **understand-anything** | `Lum1104/Understand-Anything` | 把代码库转成可交互知识图谱：架构理解、PR/diff 分析、领域建模、新人 onboarding（含 8 skill + 9 agent） |
+| **understand-anything** | `Lum1104/Understand-Anything` | 把代码库转成可交互知识图谱：架构理解、PR/diff 分析、领域建模、新人 onboarding（含 8 skill + 9 agent + 2 hook） |
 | **andrej-karpathy-skills** | `forrestchang/andrej-karpathy-skills` | `karpathy-guidelines`：上方编码四原则 |
 
 ### understand-anything 触发场景

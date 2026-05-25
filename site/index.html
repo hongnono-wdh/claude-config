@@ -864,10 +864,7 @@
             <span class="badge" style="background: var(--amber-dim); color: var(--amber);">plugin · 4 principles</span>
           </div>
           <ul class="skill-list">
-            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>think-before-coding</li>
-            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>simplicity-first</li>
-            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>surgical-changes</li>
-            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>goal-driven-execution</li>
+            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>karpathy-guidelines</li>
           </ul>
         </div>
 
@@ -932,7 +929,7 @@
 <pre id="code-manual"><span class="comment"># 1. Clone the config repo</span>
 <span class="cmd">git clone</span> <span class="url">https://github.com/hongnono-wdh/claude-config.git</span> <span class="string">/tmp/claude-config</span>
 
-<span class="comment"># 2. Copy global config (settings.json auto-installs the 3 plugins on launch)</span>
+<span class="comment"># 2. Copy global config (settings.json registers the plugin marketplaces &amp; enables them)</span>
 <span class="cmd">mkdir</span> <span class="flag">-p</span> ~/.claude
 <span class="cmd">cp</span> /tmp/claude-config/CLAUDE.md <span class="string">~/.claude/CLAUDE.md</span>
 <span class="cmd">cp</span> /tmp/claude-config/settings.json <span class="string">~/.claude/settings.json</span>
@@ -947,7 +944,7 @@
 <span class="cmd">npx</span> playwright install <span class="flag">--with-deps</span> chromium
 <span class="cmd">curl</span> <span class="flag">-LsSf</span> <span class="url">https://astral.sh/uv/install.sh</span> | sh
 
-<span class="comment"># 5. (Optional) install the 3 plugins explicitly — settings.json already auto-installs them</span>
+<span class="comment"># 5. Install the 3 plugins (settings.json only registers them — install actually downloads)</span>
 <span class="cmd">claude plugin install</span> <span class="string">superpowers@claude-plugins-official</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
 <span class="cmd">claude plugin install</span> <span class="string">understand-anything@understand-anything</span>
@@ -995,7 +992,7 @@ Execute ALL steps below. Confirm each step succeeds:
    (This aliases "claude" to auto-include --dangerously-skip-permissions)
 4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
 5. curl -LsSf https://astral.sh/uv/install.sh | sh
-6. Install the 3 plugins (optional — settings.json auto-installs them on launch):
+6. Install the 3 plugins (settings.json registers them; run install to actually download):
    claude plugin install superpowers@claude-plugins-official
    claude plugin marketplace add Lum1104/Understand-Anything &amp;&amp; claude plugin install understand-anything@understand-anything
    claude plugin marketplace add forrestchang/andrej-karpathy-skills &amp;&amp; claude plugin install andrej-karpathy-skills@karpathy-skills
