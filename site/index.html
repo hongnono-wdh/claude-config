@@ -947,7 +947,7 @@
 <span class="cmd">npx</span> playwright install <span class="flag">--with-deps</span> chromium
 <span class="cmd">curl</span> <span class="flag">-LsSf</span> <span class="url">https://astral.sh/uv/install.sh</span> | sh
 
-<span class="comment"># 5. 一键安装聚合插件（自动带装上面 3 个插件 + 规则 skill/MCP/hook）</span>
+<span class="comment"># 5. 一键安装聚合插件（自动带装 3 插件 + TS/Go LSP + 规则 skill/MCP/hook）</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
@@ -997,7 +997,7 @@ https://github.com/hongnono-wdh/claude-config
    （这会为 "claude" 设置别名，使其自动带上 --dangerously-skip-permissions）
 4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
 5. curl -LsSf https://astral.sh/uv/install.sh | sh
-6. 一键安装聚合插件（会自动带装上面 3 个插件 + 规则 skill/MCP/hook）：
+6. 一键安装聚合插件（会自动带装 3 插件 + TS/Go LSP + 规则 skill/MCP/hook）：
    claude plugin marketplace add Lum1104/Understand-Anything
    claude plugin marketplace add forrestchang/andrej-karpathy-skills
    claude plugin marketplace add hongnono-wdh/claude-config &amp;&amp; claude plugin install claude-config@claude-config
