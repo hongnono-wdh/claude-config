@@ -912,9 +912,35 @@
       <div class="install-block fade-in">
         <div class="install-tabs" role="tablist">
           <button class="install-tab active" role="tab" aria-selected="true" data-tab="prompt">AI 提示词（一键）</button>
+          <button class="install-tab" role="tab" aria-selected="false" data-tab="plugin">插件安装</button>
           <button class="install-tab" role="tab" aria-selected="false" data-tab="manual">手动安装</button>
         </div>
         <div class="install-content">
+          <!-- Plugin (aggregate) -->
+          <div class="install-panel" id="tab-plugin">
+            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">最优雅的方式：一条 install 命令，自动带装 superpowers、understand-anything、Karpathy 及 TypeScript/Go LSP 共 5 个依赖插件，外加规则 skill / MCP / reflection hook。</p>
+            <div class="code-block">
+              <div class="code-header">
+                <span>bash</span>
+                <button class="copy-btn" data-target="code-plugin" aria-label="复制插件命令">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                  复制
+                </button>
+              </div>
+              <div class="code-body">
+<pre id="code-plugin"><span class="comment"># 注册市场（superpowers 在官方市场，无需注册）</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+
+<span class="comment"># 一键安装聚合插件 —— 5 个依赖插件自动带装</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
+
+<span class="comment"># 那 11 个独立 skill 插件无法自动装，按需用「手动安装」tab 的 npx 命令补</span></pre>
+              </div>
+            </div>
+          </div>
+
           <!-- Manual -->
           <div class="install-panel" id="tab-manual">
             <div class="code-block">
