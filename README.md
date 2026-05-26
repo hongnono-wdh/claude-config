@@ -165,10 +165,13 @@ npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
 # 1. 克隆配置仓库
 git clone https://github.com/hongnono-wdh/claude-config.git
 
-# 2. 复制全局配置（settings.json 注册插件市场与启用状态）
+# 2. 复制全局配置（已有同名文件先备份为 .bak，避免覆盖原有配置）
 mkdir -p ~/.claude
+[ -f ~/.claude/CLAUDE.md ] && cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
+[ -f ~/.claude/settings.json ] && cp ~/.claude/settings.json ~/.claude/settings.json.bak
 cp claude-config/CLAUDE.md ~/.claude/CLAUDE.md
 cp claude-config/settings.json ~/.claude/settings.json
+# 原有配置已存到 .bak；若需保留请手动合并，或改用 AI 提示词方式让 Claude 智能合并
 
 # 3. 设置环境变量
 cat claude-config/bashrc-exports.sh >> ~/.bashrc

@@ -929,10 +929,13 @@
 <pre id="code-manual"><span class="comment"># 1. 克隆配置仓库</span>
 <span class="cmd">git clone</span> <span class="url">https://github.com/hongnono-wdh/claude-config.git</span> <span class="string">/tmp/claude-config</span>
 
-<span class="comment"># 2. 复制全局配置（settings.json 负责注册插件市场并启用它们）</span>
+<span class="comment"># 2. 复制全局配置（已有同名文件先备份为 .bak，避免覆盖你的原有配置）</span>
 <span class="cmd">mkdir</span> <span class="flag">-p</span> ~/.claude
+[ -f ~/.claude/CLAUDE.md ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
+[ -f ~/.claude/settings.json ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/settings.json ~/.claude/settings.json.bak
 <span class="cmd">cp</span> /tmp/claude-config/CLAUDE.md <span class="string">~/.claude/CLAUDE.md</span>
 <span class="cmd">cp</span> /tmp/claude-config/settings.json <span class="string">~/.claude/settings.json</span>
+<span class="comment"># 原有配置已存到 .bak，按需手动合并；已有 CLAUDE.md 的用户更推荐用上方「AI 提示词」让 Claude 智能合并</span>
 
 <span class="comment"># 3. 设置环境变量 + 别名</span>
 <span class="cmd">cat</span> /tmp/claude-config/bashrc-exports.sh <span class="flag">&gt;&gt;</span> ~/.bashrc
@@ -986,7 +989,10 @@ https://github.com/hongnono-wdh/claude-config
 请执行下面的全部步骤，并确认每一步都成功：
 
 1. git clone https://github.com/hongnono-wdh/claude-config.git /tmp/claude-config
-2. mkdir -p ~/.claude &amp;&amp; cp /tmp/claude-config/CLAUDE.md ~/.claude/CLAUDE.md &amp;&amp; cp /tmp/claude-config/settings.json ~/.claude/settings.json
+2. 复制全局配置——重要：必须保留我已有的内容，不要整体覆盖：
+   - 先 mkdir -p ~/.claude
+   - 若 ~/.claude/CLAUDE.md 已存在，请把 /tmp/claude-config/CLAUDE.md 的核心小节（编码核心准则、已安装插件、工具选型、Skill 使用规则、Agent Teams）合并进去并去重，完整保留我原有内容；若不存在则直接复制
+   - 若 ~/.claude/settings.json 已存在，请把其中的 enabledPlugins、extraKnownMarketplaces、mcpServers、permissions 合并进我已有设置（保留我原有的键），不要整体覆盖；若不存在则直接复制
 3. cat /tmp/claude-config/bashrc-exports.sh &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
    （这会为 "claude" 设置别名，使其自动带上 --dangerously-skip-permissions）
 4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
