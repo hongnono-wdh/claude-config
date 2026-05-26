@@ -21,13 +21,23 @@
 | **understand-anything** | `Lum1104/Understand-Anything` | 把代码库转成可交互知识图谱：架构理解、PR/diff 分析、领域建模、新人 onboarding（含 8 skill + 9 agent + 2 hook） |
 | **andrej-karpathy-skills** | `forrestchang/andrej-karpathy-skills` | `karpathy-guidelines`：上方编码四原则 |
 
-### understand-anything 触发场景
-- **接手陌生代码库 / 理清架构** → `understand`（生成知识图谱）、`understand-dashboard`（可视化仪表盘）
-- **就代码库提问** → `understand-chat`
-- **深入解释某文件 / 函数 / 模块** → `understand-explain`
-- **分析 git diff / PR 的改动与风险** → `understand-diff`
-- **提取业务领域知识** → `understand-domain`
-- **给新成员生成上手指南** → `understand-onboard`
+### understand-anything 使用指南（开发时理解代码）
+
+**前置——先建图谱：** 所有查询命令都依赖知识图谱。接手代码库先跑一次 `understand`（扫描生成 `.understand-anything/knowledge-graph.json`；大项目首次 5–15 分钟，之后只增量分析改动的文件）。图谱可提交 Git 共享，团队 / 多次会话复用、不必重跑。唯 `understand-knowledge` 例外（分析 LLM wiki，独立运行，不需先 `understand`）。
+
+**按「你现在想干什么」选命令：**
+
+| 开发场景 | 用哪个 |
+|---------|--------|
+| 第一次接手陌生库、要建立全局认知（必做的第一步） | `understand` |
+| 交互式浏览架构、文件/函数/类之间的关系 | `understand-dashboard` |
+| 对代码库有具体疑问（"支付流程怎么走？""鉴权在哪做？"） | `understand-chat` |
+| 吃透某个具体文件/函数/模块的结构与依赖 | `understand-explain <路径>` |
+| 改完代码、想知道影响面会牵连哪些地方（开发 / PR 必备） | `understand-diff` |
+| 理解业务逻辑 / 流程，而非代码结构 | `understand-domain` |
+| 系统性学习、或给新人排一条分级上手路径 | `understand-onboard` |
+
+**典型流程**（吃透陌生库）：`understand` 建图 → `understand-dashboard` / `understand-onboard` 看全貌 → `understand-chat` / `understand-explain` 钻细节 → 改完用 `understand-diff` 评估影响面。
 
 ### Serena（MCP）vs understand-anything（插件）选型
 两者互补，不是二选一：
