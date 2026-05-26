@@ -2,3 +2,6 @@
 *.swp
 *.swo
 .env
+
+# Cloudflare Pages 部署缓存
+.wrangler/
