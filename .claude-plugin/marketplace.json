@@ -18,7 +18,9 @@
       "dependencies": [
         { "name": "superpowers", "marketplace": "claude-plugins-official" },
         { "name": "understand-anything", "marketplace": "understand-anything" },
-        { "name": "andrej-karpathy-skills", "marketplace": "karpathy-skills" }
+        { "name": "andrej-karpathy-skills", "marketplace": "karpathy-skills" },
+        { "name": "typescript-lsp", "marketplace": "claude-plugins-official" },
+        { "name": "gopls-lsp", "marketplace": "claude-plugins-official" }
       ]
     }
   ]
