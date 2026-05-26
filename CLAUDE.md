@@ -37,7 +37,15 @@
 | 理解业务逻辑 / 流程，而非代码结构 | `understand-domain` |
 | 系统性学习、或给新人排一条分级上手路径 | `understand-onboard` |
 
-**典型流程**（吃透陌生库）：`understand` 建图 → `understand-dashboard` / `understand-onboard` 看全貌 → `understand-chat` / `understand-explain` 钻细节 → 改完用 `understand-diff` 评估影响面。
+**两个典型工作流：**
+- **吃透陌生库**：`understand` 建图 → `understand-dashboard` / `understand-onboard` 看全貌 → `understand-chat` / `understand-explain` 钻细节。
+- **重构 / 改某个功能**：先 `understand-domain` 理解业务流程 → 再 `understand-explain <目标文件>` 吃透要改的代码 → 改完用 `understand-diff` 评估改动影响面。
+
+**官方推荐的最佳实践：**
+- **中文团队**：`understand --language zh`（节点描述 + Dashboard UI 中文；支持 en/zh/zh-TW/ja/ko/ru）。
+- **大型 monorepo**：`understand <子目录>` 限定分析范围，省时省 token。
+- **自动保鲜**：`understand --auto-update` 装 post-commit 钩子，每次提交自动增量更新图谱（官方建议新项目就开启）。
+- **团队共享**：把 `knowledge-graph.json` + `dashboard/` + `config.json` 提交 Git，队友 / 新人直接复用、跳过分析流水线；`.gitignore` 忽略 `intermediate/` 与 `diff-overlay.json`；图谱 >10MB 用 git-lfs。
 
 ### Serena（MCP）vs understand-anything（插件）选型
 两者互补，不是二选一：
