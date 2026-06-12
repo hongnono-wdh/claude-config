@@ -81,6 +81,7 @@
 ### 用户请求时触发
 - **"review" / 代码审查** → requesting-code-review
 - **"设计 UI" / 前端** → frontend-design 或 ui-ux-pro-max
+- **落地页/营销页/作品集/重设计** → design-taste-frontend（反模板审美，这类页面优先于通用前端 skill；不适用于 dashboard/多步产品 UI）
 - **"创建 skill"** → skill-creator 或 writing-skills
 - **"设计海报/视觉"** → canvas-design
 - **"头脑风暴" / 创意讨论** → brainstorming

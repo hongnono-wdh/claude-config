@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Claude Config - Claude Code 增强配置工具包</title>
-  <meta name="description" content="3 个插件 + 34 个 Skill + MCP 服务器 + Agent Teams。为 Claude Code 重度用户打造的一键配置方案。">
+  <meta name="description" content="3 个插件 + 35 个 Skill + MCP 服务器 + Agent Teams。为 Claude Code 重度用户打造的一键配置方案。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -145,6 +145,24 @@
     .nav-cta:hover {
       background: #16A34A;
       box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .lang-toggle {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle:hover {
+      color: var(--text-primary);
+      border-color: var(--border-hover);
     }
 
     /* --- Hero --- */
@@ -669,14 +687,18 @@
         Claude Config
       </a>
       <ul class="nav-links">
-        <li><a href="#features">功能特性</a></li>
-        <li><a href="#skills">Skill 列表</a></li>
-        <li><a href="#install">安装</a></li>
+        <li><a href="#features" data-i18n="nav.features">功能特性</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skill 列表</a></li>
+        <li><a href="#install" data-i18n="nav.install">安装</a></li>
+        <li><a href="/design-styles" target="_blank" rel="noopener" style="color: var(--accent);" data-i18n="nav.wiki">风格百科 ↗</a></li>
       </ul>
+      <div style="display: flex; align-items: center; gap: 12px;">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
       <a href="https://github.com/hongnono-wdh/claude-config" class="nav-cta" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
+      </div>
     </div>
   </nav>
 
@@ -686,38 +708,38 @@
       <div class="fade-in">
         <div class="hero-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          开源 &middot; 开箱即用
+          <span data-i18n="hero.badge">开源 &middot; 开箱即用</span>
         </div>
-        <h1>全面强化你的<br><span class="gradient">Claude Code</span></h1>
-        <p>3 个插件 + 34 个 Skill + MCP 服务器 + Agent Teams。一套配置统管全局。克隆、复制、搞定。</p>
+        <h1 data-i18n-html="hero.title">全面强化你的<br><span class="gradient">Claude Code</span></h1>
+        <p data-i18n="hero.sub">3 个插件 + 35 个 Skill + MCP 服务器 + Agent Teams。一套配置统管全局。克隆、复制、搞定。</p>
       </div>
       <div class="hero-actions fade-in">
         <a href="#install" class="btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          快速安装
+          <span data-i18n="hero.cta1">快速安装</span>
         </a>
         <a href="https://github.com/hongnono-wdh/claude-config" class="btn-secondary" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          查看源码
+          <span data-i18n="hero.cta2">查看源码</span>
         </a>
       </div>
 
       <div class="stats fade-in">
         <div class="stat">
           <div class="stat-value">3</div>
-          <div class="stat-label">插件</div>
+          <div class="stat-label" data-i18n="stats.plugins">插件</div>
         </div>
         <div class="stat">
-          <div class="stat-value">34</div>
-          <div class="stat-label">Skill</div>
+          <div class="stat-value">35</div>
+          <div class="stat-label" data-i18n="stats.skills">Skill</div>
         </div>
         <div class="stat">
           <div class="stat-value">2</div>
-          <div class="stat-label">MCP 服务器</div>
+          <div class="stat-label" data-i18n="stats.mcp">MCP 服务器</div>
         </div>
         <div class="stat">
           <div class="stat-value">&lt;5min</div>
-          <div class="stat-label">安装耗时</div>
+          <div class="stat-label" data-i18n="stats.time">安装耗时</div>
         </div>
       </div>
     </div>
@@ -727,9 +749,9 @@
   <section id="features">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="tag" style="color: var(--accent); background: var(--accent-dim);">核心功能</div>
-        <h2>你需要的一切，已预先配置好</h2>
-        <p>精选的 Skill、服务器与规则工具包，让 Claude Code 的能力大幅跃升。</p>
+        <div class="tag" style="color: var(--accent); background: var(--accent-dim);" data-i18n="feat.tag">核心功能</div>
+        <h2 data-i18n="feat.h2">你需要的一切，已预先配置好</h2>
+        <p data-i18n="feat.p">精选的 Skill、服务器与规则工具包，让 Claude Code 的能力大幅跃升。</p>
       </div>
 
       <div class="features-grid">
@@ -737,11 +759,11 @@
           <div class="feature-icon" style="background: var(--accent-dim);">
             <svg style="color: var(--accent);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <h3>3 个插件 + 34 个 Skill</h3>
-          <p>以插件形式提供 Superpowers、Understand-Anything 与 Karpathy 准则，外加 11 个独立 Skill——从 TDD 到 Solidity 安全无所不包。</p>
+          <h3 data-i18n="c1.h3">3 个插件 + 35 个 Skill</h3>
+          <p data-i18n="c1.p">以插件形式提供 Superpowers、Understand-Anything 与 Karpathy 准则，外加 12 个独立 Skill——从 TDD 到 Solidity 安全无所不包。</p>
           <div class="count" style="background: var(--accent-dim); color: var(--accent);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            内置自动触发规则
+            <span data-i18n="c1.count">内置自动触发规则</span>
           </div>
         </div>
 
@@ -749,11 +771,11 @@
           <div class="feature-icon" style="background: var(--purple-dim);">
             <svg style="color: var(--purple);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
-          <h3>MCP 服务器</h3>
-          <p>Playwright 提供无头浏览器自动化。Serena 赋予 Claude 符号级的代码导航与编辑能力——与 Understand-Anything 的全局知识图谱形成精准互补。</p>
+          <h3 data-i18n="c2.h3">MCP 服务器</h3>
+          <p data-i18n="c2.p">Playwright 提供无头浏览器自动化。Serena 赋予 Claude 符号级的代码导航与编辑能力——与 Understand-Anything 的全局知识图谱形成精准互补。</p>
           <div class="count" style="background: var(--purple-dim); color: var(--purple);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            已在 settings.json 中预配置
+            <span data-i18n="c2.count">已在 settings.json 中预配置</span>
           </div>
         </div>
 
@@ -762,10 +784,10 @@
             <svg style="color: var(--blue);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <h3>Agent Teams</h3>
-          <p>并行协调多个 Claude 实例。可用于代码审查、竞争式假设调试、多模块重构。</p>
+          <p data-i18n="c3.p">并行协调多个 Claude 实例。可用于代码审查、竞争式假设调试、多模块重构。</p>
           <div class="count" style="background: var(--blue-dim); color: var(--blue);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            已通过环境变量启用
+            <span data-i18n="c3.count">已通过环境变量启用</span>
           </div>
         </div>
 
@@ -773,11 +795,11 @@
           <div class="feature-icon" style="background: var(--amber-dim);">
             <svg style="color: var(--amber);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           </div>
-          <h3>全局提示词</h3>
-          <p>CLAUDE.md 内含完整引导：Skill 路由（遇 Bug 用 systematic-debugging、规划用 writing-plans）、Serena ↔ understand-anything 工具选型、understand 命令工作流与官方最佳实践。</p>
+          <h3 data-i18n="c4.h3">全局提示词</h3>
+          <p data-i18n="c4.p">CLAUDE.md 内含完整引导：Skill 路由（遇 Bug 用 systematic-debugging、规划用 writing-plans）、Serena ↔ understand-anything 工具选型、understand 命令工作流与官方最佳实践。</p>
           <div class="count" style="background: var(--amber-dim); color: var(--amber);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            复制到 ~/.claude/CLAUDE.md
+            <span data-i18n="c4.count">复制到 ~/.claude/CLAUDE.md</span>
           </div>
         </div>
 
@@ -785,11 +807,11 @@
           <div class="feature-icon" style="background: var(--rose-dim);">
             <svg style="color: var(--rose);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
           </div>
-          <h3>环境配置</h3>
-          <p>环境变量 + 别名，让 <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude</code> 自动以全权限模式运行。一行命令追加到 .bashrc 即可。</p>
+          <h3 data-i18n="c5.h3">环境配置</h3>
+          <p data-i18n-html="c5.p">环境变量 + 别名，让 <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude</code> 自动以全权限模式运行。一行命令追加到 .bashrc 即可。</p>
           <div class="count" style="background: var(--rose-dim); color: var(--rose);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            bashrc-exports.sh 即取即用
+            <span data-i18n="c5.count">bashrc-exports.sh 即取即用</span>
           </div>
         </div>
 
@@ -797,11 +819,11 @@
           <div class="feature-icon" style="background: var(--cyan-dim);">
             <svg style="color: var(--cyan);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
-          <h3>记忆系统</h3>
-          <p>预置的记忆模板，涵盖用户画像、MCP 最佳实践与 Agent Teams 协作模式。</p>
+          <h3 data-i18n="c6.h3">记忆系统</h3>
+          <p data-i18n="c6.p">预置的记忆模板，涵盖用户画像、MCP 最佳实践与 Agent Teams 协作模式。</p>
           <div class="count" style="background: var(--cyan-dim); color: var(--cyan);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="20 6 9 17 4 12"/></svg>
-            4 份参考记忆
+            <span data-i18n="c6.count">4 份参考记忆</span>
           </div>
         </div>
       </div>
@@ -812,16 +834,16 @@
   <section id="skills" class="skills-section">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="tag" style="color: var(--purple); background: var(--purple-dim);">3 个插件 + 34 个 Skill</div>
-        <h2>完整的 Skill 武器库</h2>
-        <p>能感知上下文的 Skill，会根据你正在做的事自动触发。无需记忆任何命令。</p>
+        <div class="tag" style="color: var(--purple); background: var(--purple-dim);" data-i18n="skills.tag">3 个插件 + 35 个 Skill</div>
+        <h2 data-i18n="skills.h2">完整的 Skill 武器库</h2>
+        <p data-i18n="skills.p">能感知上下文的 Skill，会根据你正在做的事自动触发。无需记忆任何命令。</p>
       </div>
 
       <div class="skills-grid">
         <div class="skill-group fade-in">
           <div class="skill-group-header">
             <h3>Superpowers</h3>
-            <span class="badge" style="background: var(--accent-dim); color: var(--accent);">插件 · 14</span>
+            <span class="badge" style="background: var(--accent-dim); color: var(--accent);" data-i18n="badge.sp">插件 · 14</span>
           </div>
           <ul class="skill-list">
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>systematic-debugging</li>
@@ -844,7 +866,7 @@
         <div class="skill-group fade-in">
           <div class="skill-group-header">
             <h3>Understand Anything</h3>
-            <span class="badge" style="background: var(--cyan-dim); color: var(--cyan);">插件 · 8</span>
+            <span class="badge" style="background: var(--cyan-dim); color: var(--cyan);" data-i18n="badge.ua">插件 · 8</span>
           </div>
           <ul class="skill-list">
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>understand</li>
@@ -861,7 +883,7 @@
         <div class="skill-group fade-in">
           <div class="skill-group-header">
             <h3>Karpathy Guidelines</h3>
-            <span class="badge" style="background: var(--amber-dim); color: var(--amber);">插件 · 4 条原则</span>
+            <span class="badge" style="background: var(--amber-dim); color: var(--amber);" data-i18n="badge.kp">插件 · 4 条原则</span>
           </div>
           <ul class="skill-list">
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>karpathy-guidelines</li>
@@ -870,19 +892,20 @@
 
         <div class="skill-group fade-in">
           <div class="skill-group-header">
-            <h3>设计</h3>
-            <span class="badge" style="background: var(--rose-dim); color: var(--rose);">3</span>
+            <h3 data-i18n="group.design">设计</h3>
+            <span class="badge" style="background: var(--rose-dim); color: var(--rose);">4</span>
           </div>
           <ul class="skill-list">
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>frontend-design</li>
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>ui-ux-pro-max</li>
             <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>canvas-design</li>
+            <li class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>design-taste-frontend</li>
           </ul>
         </div>
 
         <div class="skill-group fade-in" style="grid-column: 1 / -1;">
           <div class="skill-group-header">
-            <h3>开发工具</h3>
+            <h3 data-i18n="group.dev">开发工具</h3>
             <span class="badge" style="background: var(--blue-dim); color: var(--blue);">8</span>
           </div>
           <ul class="skill-list">
@@ -904,31 +927,31 @@
   <section id="install">
     <div class="container">
       <div class="section-header fade-in">
-        <div class="tag" style="color: var(--amber); background: var(--amber-dim);">快速开始</div>
-        <h2>几分钟即可安装</h2>
-        <p>两种上手方式：按步骤手动安装，或粘贴一段提示词让 AI 替你完成。</p>
+        <div class="tag" style="color: var(--amber); background: var(--amber-dim);" data-i18n="install.tag">快速开始</div>
+        <h2 data-i18n="install.h2">几分钟即可安装</h2>
+        <p data-i18n="install.p">三种上手方式：粘贴提示词让 AI 替你完成、插件一键安装，或按步骤手动安装。</p>
       </div>
 
       <div class="install-block fade-in">
         <div class="install-tabs" role="tablist">
-          <button class="install-tab active" role="tab" aria-selected="true" data-tab="prompt">AI 提示词（一键）</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-tab="plugin">插件安装</button>
-          <button class="install-tab" role="tab" aria-selected="false" data-tab="manual">手动安装</button>
+          <button class="install-tab active" role="tab" aria-selected="true" data-tab="prompt" data-i18n="tab.prompt">AI 提示词（一键）</button>
+          <button class="install-tab" role="tab" aria-selected="false" data-tab="plugin" data-i18n="tab.plugin">插件安装</button>
+          <button class="install-tab" role="tab" aria-selected="false" data-tab="manual" data-i18n="tab.manual">手动安装</button>
         </div>
         <div class="install-content">
           <!-- Plugin (aggregate) -->
           <div class="install-panel" id="tab-plugin">
-            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">最优雅的方式：一条 install 命令，自动带装 superpowers、understand-anything、Karpathy 及 TypeScript/Go LSP 共 5 个依赖插件，外加规则 skill / MCP / reflection hook。</p>
+            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;" data-i18n="plugin.intro">最优雅的方式：一条 install 命令，自动带装 superpowers、understand-anything、Karpathy 及 TypeScript/Go LSP 共 5 个依赖插件，外加规则 skill / MCP / reflection hook。</p>
             <div class="code-block">
               <div class="code-header">
                 <span>bash</span>
                 <button class="copy-btn" data-target="code-plugin" aria-label="复制插件命令">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  复制
+                  <span data-i18n="btn.copy">复制</span>
                 </button>
               </div>
               <div class="code-body">
-<pre id="code-plugin"><span class="comment"># 注册市场（superpowers 在官方市场，无需注册）</span>
+<pre id="code-plugin" data-i18n-html="pre.plugin"><span class="comment"># 注册市场（superpowers 在官方市场，无需注册）</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
 <span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
@@ -936,7 +959,7 @@
 <span class="comment"># 一键安装聚合插件 —— 5 个依赖插件自动带装</span>
 <span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
 
-<span class="comment"># 那 11 个独立 skill 插件无法自动装，按需用「手动安装」tab 的 npx 命令补</span></pre>
+<span class="comment"># 那 12 个独立 skill 插件无法自动装，按需用「手动安装」tab 的 npx 命令补</span></pre>
               </div>
             </div>
           </div>
@@ -948,11 +971,11 @@
                 <span>bash</span>
                 <button class="copy-btn" data-target="code-manual" aria-label="Copy code">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  复制
+                  <span data-i18n="btn.copy">复制</span>
                 </button>
               </div>
               <div class="code-body">
-<pre id="code-manual"><span class="comment"># 1. 克隆配置仓库</span>
+<pre id="code-manual" data-i18n-html="pre.manual"><span class="comment"># 1. 克隆配置仓库</span>
 <span class="cmd">git clone</span> <span class="url">https://github.com/hongnono-wdh/claude-config.git</span> <span class="string">/tmp/claude-config</span>
 
 <span class="comment"># 2. 复制全局配置（已有同名文件先备份为 .bak，避免覆盖你的原有配置）</span>
@@ -979,11 +1002,12 @@
 <span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
 <span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
 
-<span class="comment"># 6. 安装 11 个独立 Skill</span>
+<span class="comment"># 6. 安装 12 个独立 Skill</span>
 <span class="cmd">npx skills add</span> <span class="string">anthropics/skills</span> <span class="flag">-a claude-code -g -y \
   --skill frontend-design --skill canvas-design \
   --skill webapp-testing --skill skill-creator</span>
 <span class="cmd">npx skills add</span> <span class="string">nextlevelbuilder/ui-ux-pro-max-skill</span> <span class="flag">-a claude-code -g -y --skill ui-ux-pro-max</span>
+<span class="cmd">npx skills add</span> <span class="string">Leonxlnx/taste-skill</span> <span class="flag">-a claude-code -g -y --skill design-taste-frontend</span>
 <span class="cmd">npx skills add</span> <span class="string">intellectronica/agent-skills</span> <span class="flag">-a claude-code -g -y --skill context7</span>
 <span class="cmd">npx skills add</span> <span class="string">softaworks/agent-toolkit</span> <span class="flag">-a claude-code -g -y --skill database-schema-designer</span>
 <span class="cmd">npx skills add</span> <span class="string">microsoft/playwright-cli</span> <span class="flag">-a claude-code -g -y --skill playwright-cli</span>
@@ -999,17 +1023,17 @@
 
           <!-- AI Prompt -->
           <div class="install-panel active" id="tab-prompt">
-            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;">复制这段提示词，粘贴给新环境中的 Claude Code：</p>
+            <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 14px;" data-i18n="prompt.intro">复制这段提示词，粘贴给新环境中的 Claude Code：</p>
             <div class="code-block">
               <div class="code-header">
                 <span>prompt</span>
                 <button class="copy-btn" data-target="code-prompt" aria-label="Copy prompt">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                  复制
+                  <span data-i18n="btn.copy">复制</span>
                 </button>
               </div>
               <div class="code-body">
-<pre id="code-prompt">请安装来自以下地址的 Claude Code 增强配置：
+<pre id="code-prompt" data-i18n-html="pre.prompt">请安装来自以下地址的 Claude Code 增强配置：
 https://github.com/hongnono-wdh/claude-config
 
 请执行下面的全部步骤，并确认每一步都成功：
@@ -1029,19 +1053,20 @@ https://github.com/hongnono-wdh/claude-config
    claude plugin marketplace add hongnono-wdh/claude-config &amp;&amp; claude plugin install claude-config@claude-config
 7. npx skills add anthropics/skills -a claude-code -g -y --skill frontend-design --skill canvas-design --skill webapp-testing --skill skill-creator
 8. npx skills add nextlevelbuilder/ui-ux-pro-max-skill -a claude-code -g -y --skill ui-ux-pro-max
-9. npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
-10. npx skills add softaworks/agent-toolkit -a claude-code -g -y --skill database-schema-designer
-11. npx skills add microsoft/playwright-cli -a claude-code -g -y --skill playwright-cli
-12. npx skills add github/awesome-copilot -a claude-code -g -y --skill refactor
-13. npx skills add wshobson/agents -a claude-code -g -y --skill solidity-security
-14. npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
-15. rm -rf /tmp/claude-config
+9. npx skills add Leonxlnx/taste-skill -a claude-code -g -y --skill design-taste-frontend
+10. npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
+11. npx skills add softaworks/agent-toolkit -a claude-code -g -y --skill database-schema-designer
+12. npx skills add microsoft/playwright-cli -a claude-code -g -y --skill playwright-cli
+13. npx skills add github/awesome-copilot -a claude-code -g -y --skill refactor
+14. npx skills add wshobson/agents -a claude-code -g -y --skill solidity-security
+15. npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
+16. rm -rf /tmp/claude-config
 
 完成后，请验证：
 - ~/.claude/CLAUDE.md 存在
 - ~/.claude/settings.json 存在
 - 运行 "claude plugin list"（应显示 3 个已启用的插件）
-- 列出已安装的独立 Skill（应为 11 个）
+- 列出已安装的独立 Skill（应为 12 个）
 - 运行 "type claude" 确认别名已设置（应包含 --dangerously-skip-permissions）</pre>
               </div>
             </div>
@@ -1054,10 +1079,12 @@ https://github.com/hongnono-wdh/claude-config
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>
+      <p data-i18n-html="footer.html">
         为 <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> 重度用户打造。
         <span style="margin: 0 8px; color: var(--text-muted);">&middot;</span>
         <a href="https://github.com/hongnono-wdh/claude-config" target="_blank" rel="noopener">GitHub</a>
+        <span style="margin: 0 8px; color: var(--text-muted);">&middot;</span>
+        <a href="/design-styles" target="_blank" rel="noopener">设计风格百科</a>
       </p>
     </div>
   </footer>
@@ -1085,7 +1112,7 @@ https://github.com/hongnono-wdh/claude-config
         const text = target.textContent;
         navigator.clipboard.writeText(text).then(() => {
           const original = btn.innerHTML;
-          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> 已复制！';
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg>' + (currentLang === 'en' ? ' Copied!' : ' 已复制！');
           btn.style.color = 'var(--accent)';
           btn.style.borderColor = 'var(--accent)';
           setTimeout(() => {
@@ -1107,6 +1134,278 @@ https://github.com/hongnono-wdh/claude-config
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // --- i18n（默认跟随浏览器语言；手动切换记入 localStorage）---
+    const I18N = {
+      'nav.features': ['功能特性', 'Features'],
+      'nav.skills': ['Skill 列表', 'Skills'],
+      'nav.install': ['安装', 'Install'],
+      'nav.wiki': ['风格百科 ↗', 'Style Wiki ↗'],
+      'hero.badge': ['开源 · 开箱即用', 'Open Source · Ready to Use'],
+      'hero.sub': ['3 个插件 + 35 个 Skill + MCP 服务器 + Agent Teams。一套配置统管全局。克隆、复制、搞定。', '3 Plugins + 35 Skills + MCP Servers + Agent Teams. One config to rule them all. Clone, copy, done.'],
+      'hero.cta1': ['快速安装', 'Quick Install'],
+      'hero.cta2': ['查看源码', 'View Source'],
+      'stats.plugins': ['插件', 'Plugins'],
+      'stats.skills': ['Skill', 'Skills'],
+      'stats.mcp': ['MCP 服务器', 'MCP Servers'],
+      'stats.time': ['安装耗时', 'Setup Time'],
+      'feat.tag': ['核心功能', 'Core Features'],
+      'feat.h2': ['你需要的一切，已预先配置好', 'Everything You Need, Pre-configured'],
+      'feat.p': ['精选的 Skill、服务器与规则工具包，让 Claude Code 的能力大幅跃升。', 'A curated toolkit of skills, servers, and rules that makes Claude Code dramatically more capable.'],
+      'c1.h3': ['3 个插件 + 35 个 Skill', '3 Plugins + 35 Skills'],
+      'c1.p': ['以插件形式提供 Superpowers、Understand-Anything 与 Karpathy 准则，外加 12 个独立 Skill——从 TDD 到 Solidity 安全无所不包。', 'Superpowers, Understand-Anything and Karpathy guidelines ship as plugins, plus 12 standalone skills — from TDD to Solidity security.'],
+      'c1.count': ['内置自动触发规则', 'Auto-trigger rules included'],
+      'c2.h3': ['MCP 服务器', 'MCP Servers'],
+      'c2.p': ['Playwright 提供无头浏览器自动化。Serena 赋予 Claude 符号级的代码导航与编辑能力——与 Understand-Anything 的全局知识图谱形成精准互补。', 'Playwright for headless browser automation. Serena gives Claude symbol-level code navigation and editing — a precise complement to Understand-Anything\'s global knowledge graph.'],
+      'c2.count': ['已在 settings.json 中预配置', 'Pre-configured in settings.json'],
+      'c3.p': ['并行协调多个 Claude 实例。可用于代码审查、竞争式假设调试、多模块重构。', 'Coordinate multiple Claude instances in parallel: code review, competing-hypothesis debugging, multi-module refactoring.'],
+      'c3.count': ['已通过环境变量启用', 'Enabled via environment variable'],
+      'c4.h3': ['全局提示词', 'Global Prompts'],
+      'c4.p': ['CLAUDE.md 内含完整引导：Skill 路由（遇 Bug 用 systematic-debugging、规划用 writing-plans）、Serena ↔ understand-anything 工具选型、understand 命令工作流与官方最佳实践。', 'CLAUDE.md ships full guidance: skill routing (systematic-debugging for bugs, writing-plans for planning), Serena ↔ understand-anything tool selection, understand workflows and official best practices.'],
+      'c4.count': ['复制到 ~/.claude/CLAUDE.md', 'Copies to ~/.claude/CLAUDE.md'],
+      'c5.h3': ['环境配置', 'Environment Config'],
+      'c5.count': ['bashrc-exports.sh 即取即用', 'bashrc-exports.sh ready'],
+      'c6.h3': ['记忆系统', 'Memory System'],
+      'c6.p': ['预置的记忆模板，涵盖用户画像、MCP 最佳实践与 Agent Teams 协作模式。', 'Pre-built memory templates covering user profile, MCP best practices, and Agent Teams collaboration patterns.'],
+      'c6.count': ['4 份参考记忆', '4 reference memories'],
+      'skills.tag': ['3 个插件 + 35 个 Skill', '3 Plugins + 35 Skills'],
+      'skills.h2': ['完整的 Skill 武器库', 'Complete Skill Arsenal'],
+      'skills.p': ['能感知上下文的 Skill，会根据你正在做的事自动触发。无需记忆任何命令。', 'Context-aware skills that auto-trigger based on what you\'re doing. No need to memorize commands.'],
+      'badge.sp': ['插件 · 14', 'Plugin · 14'],
+      'badge.ua': ['插件 · 8', 'Plugin · 8'],
+      'badge.kp': ['插件 · 4 条原则', 'Plugin · 4 principles'],
+      'group.design': ['设计', 'Design'],
+      'group.dev': ['开发工具', 'Dev Tools'],
+      'install.tag': ['快速开始', 'Quick Start'],
+      'install.h2': ['几分钟即可安装', 'Install in Minutes'],
+      'install.p': ['三种上手方式：粘贴提示词让 AI 替你完成、插件一键安装，或按步骤手动安装。', 'Three ways to get started: paste a prompt and let AI do it, one-command plugin install, or step-by-step manual setup.'],
+      'tab.prompt': ['AI 提示词（一键）', 'AI Prompt (One-Click)'],
+      'tab.plugin': ['插件安装', 'Plugin Install'],
+      'tab.manual': ['手动安装', 'Manual Install'],
+      'plugin.intro': ['最优雅的方式：一条 install 命令，自动带装 superpowers、understand-anything、Karpathy 及 TypeScript/Go LSP 共 5 个依赖插件，外加规则 skill / MCP / reflection hook。', 'The most elegant path: one install command auto-installs 5 dependency plugins — superpowers, understand-anything, Karpathy and TypeScript/Go LSP — plus the rules skill / MCP / reflection hook.'],
+      'prompt.intro': ['复制这段提示词，粘贴给新环境中的 Claude Code：', 'Copy this prompt and paste it to Claude Code in your new environment:'],
+      'btn.copy': ['复制', 'Copy'],
+    };
+    const I18N_HTML = {
+      'hero.title': [
+        '全面强化你的<br><span class="gradient">Claude Code</span>',
+        'Supercharge Your<br><span class="gradient">Claude Code</span>'
+      ],
+      'c5.p': [
+        '环境变量 + 别名，让 <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude</code> 自动以全权限模式运行。一行命令追加到 .bashrc 即可。',
+        'Env vars + alias so <code style="background:var(--surface);padding:2px 6px;border-radius:4px;font-size:13px;">claude</code> auto-runs in full-permission mode. One line appended to .bashrc.'
+      ],
+      'footer.html': [
+        '为 <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> 重度用户打造。<span style="margin: 0 8px; color: var(--text-muted);">·</span><a href="https://github.com/hongnono-wdh/claude-config" target="_blank" rel="noopener">GitHub</a><span style="margin: 0 8px; color: var(--text-muted);">·</span><a href="/design-styles" target="_blank" rel="noopener">设计风格百科</a>',
+        'Built for <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">Claude Code</a> power users.<span style="margin: 0 8px; color: var(--text-muted);">·</span><a href="https://github.com/hongnono-wdh/claude-config" target="_blank" rel="noopener">GitHub</a><span style="margin: 0 8px; color: var(--text-muted);">·</span><a href="/design-styles" target="_blank" rel="noopener">Design Style Wiki</a>'
+      ],
+      'pre.plugin': [
+`<span class="comment"># 注册市场（superpowers 在官方市场，无需注册）</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+
+<span class="comment"># 一键安装聚合插件 —— 5 个依赖插件自动带装</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
+
+<span class="comment"># 那 12 个独立 skill 插件无法自动装，按需用「手动安装」tab 的 npx 命令补</span>`,
+`<span class="comment"># Register marketplaces (superpowers lives in the official marketplace — no registration needed)</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+
+<span class="comment"># One command installs the aggregate plugin — 5 dependency plugins come along automatically</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
+
+<span class="comment"># The 12 standalone skills can't auto-install; add them via the "Manual Install" tab's npx commands as needed</span>`
+      ],
+      'pre.manual': [
+`<span class="comment"># 1. 克隆配置仓库</span>
+<span class="cmd">git clone</span> <span class="url">https://github.com/hongnono-wdh/claude-config.git</span> <span class="string">/tmp/claude-config</span>
+
+<span class="comment"># 2. 复制全局配置（已有同名文件先备份为 .bak，避免覆盖你的原有配置）</span>
+<span class="cmd">mkdir</span> <span class="flag">-p</span> ~/.claude
+[ -f ~/.claude/CLAUDE.md ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
+[ -f ~/.claude/settings.json ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/settings.json ~/.claude/settings.json.bak
+<span class="cmd">cp</span> /tmp/claude-config/CLAUDE.md <span class="string">~/.claude/CLAUDE.md</span>
+<span class="cmd">cp</span> /tmp/claude-config/settings.json <span class="string">~/.claude/settings.json</span>
+<span class="comment"># 原有配置已存到 .bak，按需手动合并；已有 CLAUDE.md 的用户更推荐用上方「AI 提示词」让 Claude 智能合并</span>
+
+<span class="comment"># 3. 设置环境变量 + 别名</span>
+<span class="cmd">cat</span> /tmp/claude-config/bashrc-exports.sh <span class="flag">&gt;&gt;</span> ~/.bashrc
+<span class="cmd">source</span> ~/.bashrc
+<span class="comment"># 此后 "claude" 会自动带上 --dangerously-skip-permissions</span>
+
+<span class="comment"># 4. 安装 MCP 依赖</span>
+<span class="cmd">npm install</span> <span class="flag">-g</span> @playwright/mcp
+<span class="cmd">npx</span> playwright install <span class="flag">--with-deps</span> chromium
+<span class="cmd">curl</span> <span class="flag">-LsSf</span> <span class="url">https://astral.sh/uv/install.sh</span> | sh
+
+<span class="comment"># 5. 一键安装聚合插件（自动带装 3 插件 + TS/Go LSP + 规则 skill/MCP/hook）</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
+
+<span class="comment"># 6. 安装 12 个独立 Skill</span>
+<span class="cmd">npx skills add</span> <span class="string">anthropics/skills</span> <span class="flag">-a claude-code -g -y \\
+  --skill frontend-design --skill canvas-design \\
+  --skill webapp-testing --skill skill-creator</span>
+<span class="cmd">npx skills add</span> <span class="string">nextlevelbuilder/ui-ux-pro-max-skill</span> <span class="flag">-a claude-code -g -y --skill ui-ux-pro-max</span>
+<span class="cmd">npx skills add</span> <span class="string">Leonxlnx/taste-skill</span> <span class="flag">-a claude-code -g -y --skill design-taste-frontend</span>
+<span class="cmd">npx skills add</span> <span class="string">intellectronica/agent-skills</span> <span class="flag">-a claude-code -g -y --skill context7</span>
+<span class="cmd">npx skills add</span> <span class="string">softaworks/agent-toolkit</span> <span class="flag">-a claude-code -g -y --skill database-schema-designer</span>
+<span class="cmd">npx skills add</span> <span class="string">microsoft/playwright-cli</span> <span class="flag">-a claude-code -g -y --skill playwright-cli</span>
+<span class="cmd">npx skills add</span> <span class="string">github/awesome-copilot</span> <span class="flag">-a claude-code -g -y --skill refactor</span>
+<span class="cmd">npx skills add</span> <span class="string">wshobson/agents</span> <span class="flag">-a claude-code -g -y --skill solidity-security</span>
+<span class="cmd">npx skills add</span> <span class="string">wuji-labs/nopua</span> <span class="flag">-a claude-code -g -y --skill nopua</span>
+
+<span class="comment"># 7. 清理临时文件</span>
+<span class="cmd">rm</span> <span class="flag">-rf</span> /tmp/claude-config`,
+`<span class="comment"># 1. Clone the config repo</span>
+<span class="cmd">git clone</span> <span class="url">https://github.com/hongnono-wdh/claude-config.git</span> <span class="string">/tmp/claude-config</span>
+
+<span class="comment"># 2. Copy global config (existing files are backed up as .bak first — nothing gets clobbered)</span>
+<span class="cmd">mkdir</span> <span class="flag">-p</span> ~/.claude
+[ -f ~/.claude/CLAUDE.md ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
+[ -f ~/.claude/settings.json ] <span class="flag">&amp;&amp;</span> <span class="cmd">cp</span> ~/.claude/settings.json ~/.claude/settings.json.bak
+<span class="cmd">cp</span> /tmp/claude-config/CLAUDE.md <span class="string">~/.claude/CLAUDE.md</span>
+<span class="cmd">cp</span> /tmp/claude-config/settings.json <span class="string">~/.claude/settings.json</span>
+<span class="comment"># Your originals live in .bak — merge manually if needed, or use the "AI Prompt" tab for a smart merge</span>
+
+<span class="comment"># 3. Set env vars + alias</span>
+<span class="cmd">cat</span> /tmp/claude-config/bashrc-exports.sh <span class="flag">&gt;&gt;</span> ~/.bashrc
+<span class="cmd">source</span> ~/.bashrc
+<span class="comment"># "claude" now auto-includes --dangerously-skip-permissions</span>
+
+<span class="comment"># 4. Install MCP dependencies</span>
+<span class="cmd">npm install</span> <span class="flag">-g</span> @playwright/mcp
+<span class="cmd">npx</span> playwright install <span class="flag">--with-deps</span> chromium
+<span class="cmd">curl</span> <span class="flag">-LsSf</span> <span class="url">https://astral.sh/uv/install.sh</span> | sh
+
+<span class="comment"># 5. One-command aggregate plugin install (3 plugins + TS/Go LSP + rules skill/MCP/hook)</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">Lum1104/Understand-Anything</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">forrestchang/andrej-karpathy-skills</span>
+<span class="cmd">claude plugin marketplace add</span> <span class="string">hongnono-wdh/claude-config</span>
+<span class="cmd">claude plugin install</span> <span class="string">claude-config@claude-config</span>
+
+<span class="comment"># 6. Install the 12 standalone skills</span>
+<span class="cmd">npx skills add</span> <span class="string">anthropics/skills</span> <span class="flag">-a claude-code -g -y \\
+  --skill frontend-design --skill canvas-design \\
+  --skill webapp-testing --skill skill-creator</span>
+<span class="cmd">npx skills add</span> <span class="string">nextlevelbuilder/ui-ux-pro-max-skill</span> <span class="flag">-a claude-code -g -y --skill ui-ux-pro-max</span>
+<span class="cmd">npx skills add</span> <span class="string">Leonxlnx/taste-skill</span> <span class="flag">-a claude-code -g -y --skill design-taste-frontend</span>
+<span class="cmd">npx skills add</span> <span class="string">intellectronica/agent-skills</span> <span class="flag">-a claude-code -g -y --skill context7</span>
+<span class="cmd">npx skills add</span> <span class="string">softaworks/agent-toolkit</span> <span class="flag">-a claude-code -g -y --skill database-schema-designer</span>
+<span class="cmd">npx skills add</span> <span class="string">microsoft/playwright-cli</span> <span class="flag">-a claude-code -g -y --skill playwright-cli</span>
+<span class="cmd">npx skills add</span> <span class="string">github/awesome-copilot</span> <span class="flag">-a claude-code -g -y --skill refactor</span>
+<span class="cmd">npx skills add</span> <span class="string">wshobson/agents</span> <span class="flag">-a claude-code -g -y --skill solidity-security</span>
+<span class="cmd">npx skills add</span> <span class="string">wuji-labs/nopua</span> <span class="flag">-a claude-code -g -y --skill nopua</span>
+
+<span class="comment"># 7. Clean up</span>
+<span class="cmd">rm</span> <span class="flag">-rf</span> /tmp/claude-config`
+      ],
+      'pre.prompt': [
+`请安装来自以下地址的 Claude Code 增强配置：
+https://github.com/hongnono-wdh/claude-config
+
+请执行下面的全部步骤，并确认每一步都成功：
+
+1. git clone https://github.com/hongnono-wdh/claude-config.git /tmp/claude-config
+2. 复制全局配置——重要：必须保留我已有的内容，不要整体覆盖：
+   - 先 mkdir -p ~/.claude
+   - 若 ~/.claude/CLAUDE.md 已存在，请把 /tmp/claude-config/CLAUDE.md 的核心小节（编码核心准则、已安装插件、工具选型、Skill 使用规则、Agent Teams）合并进去并去重，完整保留我原有内容；若不存在则直接复制
+   - 若 ~/.claude/settings.json 已存在，请把其中的 enabledPlugins、extraKnownMarketplaces、mcpServers、permissions 合并进我已有设置（保留我原有的键），不要整体覆盖；若不存在则直接复制
+3. cat /tmp/claude-config/bashrc-exports.sh &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+   （这会为 "claude" 设置别名，使其自动带上 --dangerously-skip-permissions）
+4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
+5. curl -LsSf https://astral.sh/uv/install.sh | sh
+6. 一键安装聚合插件（会自动带装 3 插件 + TS/Go LSP + 规则 skill/MCP/hook）：
+   claude plugin marketplace add Lum1104/Understand-Anything
+   claude plugin marketplace add forrestchang/andrej-karpathy-skills
+   claude plugin marketplace add hongnono-wdh/claude-config &amp;&amp; claude plugin install claude-config@claude-config
+7. npx skills add anthropics/skills -a claude-code -g -y --skill frontend-design --skill canvas-design --skill webapp-testing --skill skill-creator
+8. npx skills add nextlevelbuilder/ui-ux-pro-max-skill -a claude-code -g -y --skill ui-ux-pro-max
+9. npx skills add Leonxlnx/taste-skill -a claude-code -g -y --skill design-taste-frontend
+10. npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
+11. npx skills add softaworks/agent-toolkit -a claude-code -g -y --skill database-schema-designer
+12. npx skills add microsoft/playwright-cli -a claude-code -g -y --skill playwright-cli
+13. npx skills add github/awesome-copilot -a claude-code -g -y --skill refactor
+14. npx skills add wshobson/agents -a claude-code -g -y --skill solidity-security
+15. npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
+16. rm -rf /tmp/claude-config
+
+完成后，请验证：
+- ~/.claude/CLAUDE.md 存在
+- ~/.claude/settings.json 存在
+- 运行 "claude plugin list"（应显示 3 个已启用的插件）
+- 列出已安装的独立 Skill（应为 12 个）
+- 运行 "type claude" 确认别名已设置（应包含 --dangerously-skip-permissions）`,
+`Please install the Claude Code enhancement config from:
+https://github.com/hongnono-wdh/claude-config
+
+Execute ALL steps below and confirm each one succeeds:
+
+1. git clone https://github.com/hongnono-wdh/claude-config.git /tmp/claude-config
+2. Copy global config — IMPORTANT: preserve my existing content, do not overwrite wholesale:
+   - First mkdir -p ~/.claude
+   - If ~/.claude/CLAUDE.md exists, merge the core sections of /tmp/claude-config/CLAUDE.md (coding principles, installed plugins, tool selection, skill rules, Agent Teams) into it with dedup, keeping all my original content; otherwise copy it directly
+   - If ~/.claude/settings.json exists, merge its enabledPlugins, extraKnownMarketplaces, mcpServers and permissions into my existing settings (keep my original keys), do not overwrite wholesale; otherwise copy it directly
+3. cat /tmp/claude-config/bashrc-exports.sh &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+   (This aliases "claude" to auto-include --dangerously-skip-permissions)
+4. npm install -g @playwright/mcp &amp;&amp; npx playwright install --with-deps chromium
+5. curl -LsSf https://astral.sh/uv/install.sh | sh
+6. One-command aggregate plugin install (auto-installs 3 plugins + TS/Go LSP + rules skill/MCP/hook):
+   claude plugin marketplace add Lum1104/Understand-Anything
+   claude plugin marketplace add forrestchang/andrej-karpathy-skills
+   claude plugin marketplace add hongnono-wdh/claude-config &amp;&amp; claude plugin install claude-config@claude-config
+7. npx skills add anthropics/skills -a claude-code -g -y --skill frontend-design --skill canvas-design --skill webapp-testing --skill skill-creator
+8. npx skills add nextlevelbuilder/ui-ux-pro-max-skill -a claude-code -g -y --skill ui-ux-pro-max
+9. npx skills add Leonxlnx/taste-skill -a claude-code -g -y --skill design-taste-frontend
+10. npx skills add intellectronica/agent-skills -a claude-code -g -y --skill context7
+11. npx skills add softaworks/agent-toolkit -a claude-code -g -y --skill database-schema-designer
+12. npx skills add microsoft/playwright-cli -a claude-code -g -y --skill playwright-cli
+13. npx skills add github/awesome-copilot -a claude-code -g -y --skill refactor
+14. npx skills add wshobson/agents -a claude-code -g -y --skill solidity-security
+15. npx skills add wuji-labs/nopua -a claude-code -g -y --skill nopua
+16. rm -rf /tmp/claude-config
+
+After completion, verify:
+- ~/.claude/CLAUDE.md exists
+- ~/.claude/settings.json exists
+- Run "claude plugin list" (should show 3 enabled plugins)
+- List installed standalone skills (should be 12)
+- Run "type claude" to confirm the alias is set (should include --dangerously-skip-permissions)`
+      ],
+    };
+    const TITLES = ['Claude Config - Claude Code 增强配置工具包', 'Claude Config - Claude Code Enhancement Kit'];
+
+    let currentLang = localStorage.getItem('lang');
+    if (currentLang !== 'zh' && currentLang !== 'en') {
+      currentLang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    }
+
+    function applyLang(lang) {
+      const i = lang === 'en' ? 1 : 0;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+      document.title = TITLES[i];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const t = I18N[el.dataset.i18n];
+        if (t) el.textContent = t[i];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const t = I18N_HTML[el.dataset.i18nHtml];
+        if (t) el.innerHTML = t[i];
+      });
+      document.getElementById('langToggle').textContent = lang === 'en' ? '中文' : 'EN';
+    }
+
+    applyLang(currentLang);
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'zh' : 'en';
+      localStorage.setItem('lang', currentLang);
+      applyLang(currentLang);
+    });
   </script>
 </body>
 </html>
