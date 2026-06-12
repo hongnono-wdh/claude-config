@@ -2,3 +2,4 @@
 - [Serena MCP Best Practices](reference_serena_best_practices.md) — 语义代码分析工具安装配置和最佳实践
 - [MCP Servers Config](reference_mcp_servers.md) — 已配置的 MCP 服务器列表（Playwright + Serena）
 - [Agent Teams Best Practices](reference_agent_teams.md) — Agent Teams 使用场景、配置和最佳实践
+- [Design Skills Reference](reference_design_skills.md) — 设计类 skill 选型（design-taste-frontend/ui-ux-pro-max/frontend-design/canvas-design）+ 84 种风格百科用法
