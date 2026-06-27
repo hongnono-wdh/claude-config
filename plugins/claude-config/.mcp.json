@@ -1,9 +1,5 @@
 {
   "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["@playwright/mcp", "--headless"]
-    },
     "serena": {
       "command": "uvx",
       "args": [
